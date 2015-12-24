@@ -98,7 +98,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
                 var sql = "SELECT e.id, e.firstName, e.lastName, e.title, count(r.id) reportCount " +
                     "FROM employee e LEFT JOIN employee r ON r.managerId = e.id " +
-                    "WHERE e.firstName || ' ' || e.lastName LIKE ? " +
+                    "WHERE e.firstName || ' ' || e.lastName || ' ' || e.title LIKE ? " +
                     "GROUP BY e.id ORDER BY e.lastName, e.firstName";
 
                 tx.executeSql(sql, ['%' + searchKey + '%'], function(tx, results) {

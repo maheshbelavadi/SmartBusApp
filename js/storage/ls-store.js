@@ -3,7 +3,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
     this.findByName = function(searchKey, callback) {
         var employees = JSON.parse(window.localStorage.getItem("employees"));
         var results = employees.filter(function(element) {
-            var fullName = element.firstName + " " + element.lastName;
+            var fullName = element.firstName + " " + element.lastName + " " + element.title;
             return fullName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
         });
         callLater(callback, results);
