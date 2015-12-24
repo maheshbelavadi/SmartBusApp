@@ -1,5 +1,9 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
+function onDeviceReady() {
+    // we will not be doing anything!!
+}
+
 var app = {
 
     showAlert: function (message, title) {
