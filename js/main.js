@@ -1,3 +1,5 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
 var app = {
 
     showAlert: function (message, title) {
