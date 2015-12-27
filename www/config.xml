@@ -27,5 +27,5 @@
 	<feature name="Contacts">
 		<param name="android-package" value="org.apache.cordova.ContactManager" />
 	</feature>
- 
+	<gap:plugin name="org.apache.cordova.contacts" /> 
 </widget>
