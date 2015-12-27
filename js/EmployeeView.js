@@ -1,3 +1,10 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    // we will not be doing anything!!
+	alert('Device ready');
+}
+
 var EmployeeView = function(employee) {
 
     this.initialize = function() {
@@ -29,20 +36,29 @@ var EmployeeView = function(employee) {
     this.addToContacts = function(event) {
         event.preventDefault();
         console.log('addToContacts');
-        if (!navigator.contacts) {
-            app.showAlert("Contacts API not supported", "Error");
-            return;
-        }
+        //if (!navigator.contacts) {
+        //    app.showAlert("Contacts API not supported1", "Error");
+        //    return;
+        //}
         var contact = navigator.contacts.create();
         contact.name = {givenName: app.currentEmployee.firstName, familyName:  app.currentEmployee.lastName};
         var phoneNumbers = [];
         phoneNumbers[0] = new ContactField('work', app.currentEmployee.officePhone, false);
         phoneNumbers[1] = new ContactField('mobile', app.currentEmployee.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
-        contact.save();
+        //contact.save();
+		contact.save(onSaveSuccess,onSaveError);
         return false;
     };
 
+	function onSaveSuccess(contact) {
+    alert("Save Success");
+};
+
+function onSaveError(contactError) {
+    alert("Error = " + contactError.code);
+};
+	
     this.changePicture = function(event) {
         event.preventDefault();
         console.log('changePicture');
