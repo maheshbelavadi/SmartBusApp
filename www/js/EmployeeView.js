@@ -40,9 +40,9 @@ var EmployeeView = function(employee) {
         //    app.showAlert("Contacts API not supported1", "Error");
         //    return;
         //}
-		alert('Adding to contact');
         var contact = navigator.contacts.create();
         contact.name = {givenName: app.currentEmployee.firstName, familyName:  app.currentEmployee.lastName};
+		alert(app.currentEmployee.firstName +  app.currentEmployee.lastName);
         var phoneNumbers = [];
         phoneNumbers[0] = new ContactField('work', app.currentEmployee.officePhone, false);
         phoneNumbers[1] = new ContactField('mobile', app.currentEmployee.cellPhone, true); // preferred number
