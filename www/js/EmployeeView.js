@@ -34,12 +34,13 @@ var EmployeeView = function(employee) {
     };
 
     this.addToContacts = function(event) {
-        event.preventDefault();
+        //event.preventDefault();
         console.log('addToContacts');
         //if (!navigator.contacts) {
         //    app.showAlert("Contacts API not supported1", "Error");
         //    return;
         //}
+		alert('Adding to contact');
         var contact = navigator.contacts.create();
         contact.name = {givenName: app.currentEmployee.firstName, familyName:  app.currentEmployee.lastName};
         var phoneNumbers = [];
@@ -47,7 +48,9 @@ var EmployeeView = function(employee) {
         phoneNumbers[1] = new ContactField('mobile', app.currentEmployee.cellPhone, true); // preferred number
         contact.phoneNumbers = phoneNumbers;
         //contact.save();
+		alert('Saving to contact');
 		contact.save(onSaveSuccess,onSaveError);
+		alert('Savinged');
         return false;
     };
 
