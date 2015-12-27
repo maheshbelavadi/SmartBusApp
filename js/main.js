@@ -2,6 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     // we will not be doing anything!!
+	alert('Device ready');
 }
 
 var app = {
