@@ -34,7 +34,7 @@ var EmployeeView = function(employee) {
     };
 
     this.addToContacts = function(event) {
-        //event.preventDefault();
+        event.preventDefault();
         console.log('addToContacts');
         //if (!navigator.contacts) {
         //    app.showAlert("Contacts API not supported1", "Error");
